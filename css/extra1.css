@@ -1,0 +1,96 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px;
+  text-shadow: rgba(0, 0, 0, 0.01) 0 0 1px; }
+
+body {
+  font-family: 'Futura', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  background: transparent;
+  color: #fff; }
+
+div {
+  display: block;
+  position: relative;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
+
+.menu_nav {
+  position: fixed;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background: #0c4e8c;
+  transition: all .5s ease; }
+
+.menu header {
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  line-height: 70px;
+  background: #0c81c4;
+  user-select: none; }
+
+.menu ul a {
+  display: block;
+  height: 100%;
+  width: 100%;
+  line-height: 65px;
+  font-size: 20px;
+  color: white;
+  padding-left: 40px;
+  box-sizing: border-box;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid black;
+  transition: 0.4s; }
+
+ul li:hover a {
+  padding-left: 50px; }
+
+.menu ul a i {
+  margin: 16px; }
+
+#check {
+  z-index: -50;
+  display: none; }
+
+label #btn, label #cancel {
+  position: absolute;
+  cursor: pointer;
+  background: #4fe7af;
+  border-radius: 3px; }
+
+label #btn {
+  left: 40px;
+  top: 25px;
+  font-size: 35px;
+  color: #0c4e8c;
+  padding: 6px 12px;
+  transition: all .5s; }
+
+label #cancel {
+  z-index: 1111;
+  left: -195px;
+  top: 17px;
+  font-size: 30px;
+  color: #0a5275;
+  padding: 4px 9px;
+  transition: all .5s; }
+
+#check:checked ~ .menu_nav {
+  left: 0px; }
+
+#check:checked ~ label #btn {
+  left: 250px;
+  opacity: 0;
+  pointer-events: none; }
+
+#check:checked ~ label #cancel {
+  left: 195px; }
+
+section {
+  background: url(img/img2.jpg); }

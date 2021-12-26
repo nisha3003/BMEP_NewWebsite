@@ -1,0 +1,580 @@
+$colour1: #e3e2df;
+$colour2: #fd5f00;
+$colour3: #1bb1dc;
+$colour4: #9a1750;
+$colour5: #5d001e;
+$baseColor: #065e77;
+$dip: #222222;
+
+
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+}
+
+body {
+    line-height: 24px;
+    font-size: 14px;
+    font-family: "Roboto", sans-serif;
+    font-weight: normal;
+    color: #777777;
+    //font-family: "Anton", sans-serif;
+    // font-family: "Nunito Sans", Arial, sans-serif;
+    // font-family: 'Calibri';
+}
+
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+    line-height: 1.5;
+    color: rgba(0, 0, 0, 0.8);
+    font-weight: 600;
+}
+
+a{
+    text-decoration: none;
+    transition: 0.3s all ease-in-out;
+    cursor: pointer;
+}
+
+a:hover, a:focus{
+    color: $baseColor;
+    text-decoration: none;
+}
+
+/*--------------------------------------------------------------
+# Header
+--------------------------------------------------------------*/
+/*
+# Site Header
+--------------------------------*/
+.site-header {
+    position: relative;
+}
+
+.site-header .site-title img {
+    max-height: 70px;
+}
+
+/*
+# Header Bar
+--------------------------------*/
+.header-bar {
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 99;
+    width: 100%;
+    padding: 16px 0;
+}
+
+/*
+# Site Branding
+--------------------------------*/
+.site-branding img {
+    display: block;
+    max-width: 100%;
+}
+
+@media screen and (min-width: 992px) {
+    .header-bar{
+        padding: 7px 0;
+    }
+}
+
+/*
+  Hamburger Menu
+----------------------------------------*/
+.hamburger-menu {
+    z-index: 9999;
+    position: relative;
+    width: 100%;
+    max-width: 24px;
+    height: 22px;
+    margin-left: auto;
+    transition: .5s ease-in-out;
+    cursor: pointer;
+}
+
+.hamburger-menu span {
+    z-index: 9999;
+    display: block;
+    position: absolute;
+    height: 3px;
+    background: $baseColor;
+    border-radius: 10px;
+    opacity: 1;
+    left: 0;
+    transition: .25s ease-in-out;
+}
+
+.hamburger-menu span:nth-child(1) {
+    width: 90%;
+    top: 2px;
+}
+
+.hamburger-menu span:nth-child(2),
+.hamburger-menu span:nth-child(3) {
+    width: 50%;
+    top: 10px;
+}
+
+.hamburger-menu span:nth-child(4) {
+    width: 100%;
+    top: 18px;
+}
+
+.hamburger-menu:hover span{
+    width: 100%;
+}
+
+.hamburger-menu.open span:nth-child(1) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+}
+
+.hamburger-menu.open span:nth-child(2) {
+    width: 100%;
+    transform: rotate(45deg);
+}
+
+.hamburger-menu.open span:nth-child(3) {
+    width: 100%;
+    transform: rotate(-45deg);
+}
+
+.hamburger-menu.open span:nth-child(4) {
+    top: 18px;
+    width: 0;
+    left: 50%;
+}
+
+/*
+# Main Menu
+--------------------------------*/
+.site-navigation {
+    position: absolute;
+    top: -22px;
+    right: 15px;
+    z-index: 99;
+    width: 100%;
+    height: 22px;
+    overflow: hidden;
+    list-style: none;
+    transition: all .35s;
+}
+
+.site-navigation.show {
+    height: auto;
+}
+
+.site-navigation ul {
+    position: fixed;
+    top: 0;
+    left: -100%;
+    z-index: 99;
+    width: 100%;
+    max-width: 100%;
+    height: 100vh;
+    padding: 30px;
+    margin: 0;
+    background: #fff;
+    transition: all 0.5s ease-in;
+}
+
+.site-navigation.show ul {
+    text-align: center;
+    left: 0px;
+    li{
+        font-size: 25px !important;
+    }
+    li:hover a{
+        font-size: 27px;
+        color: $colour5;
+    }
+    img{
+        height: 100px;
+    }
+}
+
+.site-navigation ul li {
+    display: block;
+    padding: 10px 16px;
+    font-size: 16px;
+    font-weight: bold;
+    letter-spacing: 0.02rem;
+    text-transform: uppercase;
+}
+
+.site-navigation ul li img{
+    height: 70px;
+}
+
+.site-navigation ul li a {
+    display: block;
+    line-height: 1.8;
+    color: $baseColor;
+    transition: all 0.35s;
+    text-decoration: none;
+}
+
+.site-navigation ul li a:hover,
+.site-navigation ul li.current-menu-item a {
+    border-color: #2f2f2f;
+}
+
+@media screen and (min-width: 992px) {
+    .site-navigation {
+        position: relative;
+        top: auto;
+        right: auto;
+        height: auto;
+        background: transparent;
+    }
+
+    .site-navigation ul {
+        display: flex;//removed flex-wrap
+        justify-content: space-around;
+        align-items: center;
+        position: relative;
+        top: auto;
+        left: auto;
+        width: 100%;
+        height: auto;
+        padding: 0;
+        overflow: hidden;//changed from auto to hidden
+        background: transparent;
+    }
+
+    .site-navigation ul li a {
+        position: relative;
+        font-size: 16px;
+        font-weight: bolder;
+        z-index: 1;
+        color: #000;
+    }
+
+    .site-navigation ul li a::after
+    {
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: -8px;
+        width: 100%;
+        height: 17px;
+        background: $baseColor;
+        content: '';
+        z-index: -1;
+        visibility: hidden;
+        opacity: 0;
+        -webkit-transition: all 400ms ease;
+        -moz-transition: all 400ms ease;
+        -ms-transition: all 400ms ease;
+        -o-transition: all 400ms ease;
+        transition: all 400ms ease;
+    }
+
+    .site-navigation ul li.active a::after,
+    .site-navigation ul li a:hover::after
+    {
+        bottom: -3px;
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.hero-wrap{
+	width: 100%;
+	height: 820px;
+	position: inherit;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: top center;
+	.overlay{
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		content: '';
+		opacity: .3;
+		background: black;
+		height: 820px;
+	}
+}
+
+.slider-text{
+	position: relative;
+	height: 550px;
+	p {
+		font-size: 20px;
+		line-height: 1.5;
+		font-weight: 300;
+		color: $colour1;
+	}
+	.bread{
+		font-weight: 900;
+		color: white;
+		font-size: 60px;
+	}
+}
+
+/* Team Section
+--------------------------------*/
+
+.section-bg {
+    background: #f5f8fd;
+}
+
+.section-header h3 {
+    font-size: 38px;
+    color: #413e66;
+    text-align: center;
+    font-weight: 700;
+    position: relative;
+    font-family: "Montserrat", sans-serif;
+}
+
+.section-header p {
+    text-align: center;
+    margin: auto;
+    font-size: 18px;
+    padding-bottom: 60px;
+    color: #535074;
+    width: 50%;
+}
+
+@media (max-width: 767px){
+    .section-header p {
+        width: 100%;
+    }
+}
+
+    #team {
+        padding: 60px 0;
+    }
+    
+    #team .member {
+        text-align: center;
+        margin-bottom: 20px;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #team .member .member-info {
+        display: -webkit-box;
+        display: -webkit-flex;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -webkit-justify-content: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -webkit-align-items: center;
+        -ms-flex-align: center;
+        align-items: center;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        transition: 0.2s;
+        padding: 15px 0;
+        background: rgba(29, 28, 41, 0.6);
+    }
+    
+    #team .member .member-info-content {
+        transition: margin 0.2s;
+        height: 40px;
+        transition: height 0.4s;
+    }
+    
+    #team .member:hover .member-info {
+        transition: 0.4s;
+    }
+    
+    #team .member:hover .member-info-content {
+        height: 80px;
+    }
+    
+    #team .member h4 {
+        font-weight: 700;
+        margin-bottom: 2px;
+        font-size: 18px;
+        color: #fff;
+    }
+    
+    #team .member span {
+        font-style: italic;
+        display: block;
+        font-size: 13px;
+        color: #fff;
+    }
+    
+    #team .member .social {
+        margin-top: 15px;
+    }
+    
+    #team .member .social a {
+        transition: none;
+        color: #fff;
+    }
+    
+    #team .member .social a:hover {
+        color: #1bb1dc;
+    }
+    
+    #team .member .social i {
+        font-size: 18px;
+        margin: 0 2px;
+    }
+
+    .imageGrid {
+        line-height: 0;
+    }
+        .imageGrid .tile {
+            width:33.33%;
+            min-height:20em;
+            line-height: 1.2;
+            display:inline-block;
+            background-size: cover;
+            background-position: center center;
+            background-repeat: no-repeat;
+            overflow: hidden;
+            position: relative;
+            
+            color:#fff;
+            font-family:"Verdana",sans-serif;
+            text-shadow: 2px 2px 2px #000;
+            cursor: pointer; 
+            cursor: hand;
+        }
+        
+        .imageGrid .tile:before {
+            content: '';
+            background-color: rgba(15,15,15,0.5);
+            display: block;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            position: absolute;
+        }
+        
+        .imageGrid .tile:hover:before {
+            display: none;
+        }
+        
+        .imageGrid .tile .textWrapper {
+            text-align: center;
+            vertical-align: middle;
+            width: 80%;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: .75em;
+        }
+        
+        .imageGrid .tile .textWrapper .content {
+            display: none;
+        }
+        
+        .imageGrid .tile:hover .textWrapper .content {
+            display: block;
+        }
+        
+        .imageGrid .tile:hover .textWrapper .content h2 {
+            margin: 0;
+        }
+        
+        @media (max-width: 1000px) {
+            .imageGrid .tile {
+            width: 50%;
+            }
+        }
+        
+        @media (max-width: 700px) {
+            .imageGrid .tile {
+            width: 100%;
+            }
+            
+        }
+
+    .main {
+        height: 100vh;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .grid {
+        display: grid;
+        height: 100%;
+        justify-content: center;
+        align-content: center;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 16px;
+        @media screen and (min-width: 700px) {
+            grid-template-columns: 10px 70px 10px 50px 10px 50px 10px 40px 10px 90px 10px;
+            grid-template-rows: 10px 50px 15px 10px 15px 10px 15px 10px 30px 20px 10px;
+            grid-gap: unset;
+        }
+    }
+    
+    .block {
+        padding-bottom: 66%;
+        @media screen and (min-width: 700px) {
+            padding-bottom: unset;
+        }
+    }
+    
+    .one {
+        background-color: #bee3f8;
+        @media screen and (min-width: 700px) {
+            grid-area: 2 / 2 / 4 / 5;
+        }
+        
+    }
+    .two {
+        background-color: #2c5282;
+        @media screen and (min-width: 700px) {
+            grid-area: 1 / 6 / 6 / 9;
+        }
+        
+    }
+    .three {
+        background-color: #3182ce;
+        @media screen and (min-width: 700px) {
+            grid-area: 3 / 10 / 8 / 12;
+        }
+        
+    }
+    .four {
+        background-color: #4299e1;
+        @media screen and (min-width: 700px) {
+            grid-area: 5 / 1 / 11 / 3;
+        }
+        
+    }
+    .five {
+        background-color: #90cdf4;
+        @media screen and (min-width: 700px){
+            grid-area: 7 / 4 / 10 / 7;
+        }
+        
+    }
+    .six {
+        background-color: #2a4365;
+        @media screen and (min-width: 700px) {
+            grid-area: 9 / 8 / 12 / 11;
+        }
+        
+    }    
+    .seven {
+        background-color: #2f2f2f;
+        @media screen and (min-width: 700px) {
+            grid-area: 1 / 1 / 1 / 11;
+        }
+        
+    }
